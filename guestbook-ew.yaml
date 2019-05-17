@@ -29,9 +29,12 @@ spec:
         role: master
         tier: backend
     spec:
+      hostNetwork: true
       containers:
       - name: master
         image: gcr.io/google_containers/redis:e2e  # or just image: redis
+        securityContext:
+          privileged: true
         resources:
           requests:
             cpu: 100m
